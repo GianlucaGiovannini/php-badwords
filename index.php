@@ -1,9 +1,14 @@
-<?php 
-
-    $paragraph = 'Il mio primo file di PHP, si inizia la fase Oscura! ';
+<?php
+    // variabile con il testo di aiuto
     $aiuto = "scrivi nell'URL ?testo= + una parola che verrà censurata dalla scritta sotto";
+    // apro una variabile con un testo a mia scelta
+    $paragraph = 'Il mio primo file di PHP, si inizia la fase Oscura! ';
+
+    // variabile con il testo che inserisce tramite l'URL l'utente 
     $text = $_GET['testo'];
     // var_dump($text);
+
+    // variabile con il testo a mia scelta dove faccio il replace della parola scelta dall'utente
     $censuredParagraph = str_replace($text, '***', $paragraph);
 
 ?>
@@ -26,7 +31,9 @@
         body {
             width: 100vw;
             height: 100vh;
-            background-color: #1c2469;
+            background-image: url('https://esports.thegamesmachine.it/wp-content/uploads/2017/05/Il-Lato-Oscuro-dei-videogames.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         h2 {
@@ -38,9 +45,10 @@
         }
 
         p {
+            display: inline;
             color: #948881;
             font-weight: 600;
-            text-decoration: underline;
+            border-bottom: 1px solid red;
         }
 
         .aiuto,
@@ -50,12 +58,13 @@
         }
 
         .aiuto {
-            text-align: center;
             padding: 1rem 0;
         }
         
         .container {
             padding-top: 2rem;
+            background-color: #00000052;
+
         }
 
     
@@ -67,17 +76,20 @@
             <?php echo $aiuto ?>
         </p>
     </div>
-    
 
     <div class="container">
-        <h5>Testo senza censura ( <?php echo strlen($paragraph) ?> ) caratteri</h5>
+        <h5>
+            Testo senza censura ( <?php echo strlen($paragraph) ?> ) caratteri
+        </h5>
         <h2>
             <?php echo $paragraph; ?> 
         </h2>
-        </div>
-        <div class="container">
-        <br>
-        <h5>Testo con censura ( <?php echo strlen($censuredParagraph) ?> ) caratteri </h5>
+    </div>
+
+    <div class="container">
+        <h5>
+            Testo con censura ( <?php echo strlen($censuredParagraph) ?> ) caratteri 
+        </h5>
         <h2>
             <?php echo $censuredParagraph ?>
         </h2>
